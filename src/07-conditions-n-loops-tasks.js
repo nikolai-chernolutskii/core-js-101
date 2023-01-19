@@ -462,7 +462,7 @@ function getMatrixProduct(/* m1, m2 */) {
  * Returns the evaluation of the specified tic-tac-toe position.
  * See the details: https://en.wikipedia.org/wiki/Tic-tac-toe
  *
- * Position is provides as 3x3 array with the following values: 'X','0', undefined
+ * Position is provided as 3x3 array with the following values: 'X','0', undefined
  * Function should return who is winner in the current position according to the game rules.
  * The result can be: 'X','0',undefined
  *
@@ -488,8 +488,48 @@ function getMatrixProduct(/* m1, m2 */) {
  *    [    ,   ,    ]]
  *
  */
-function evaluateTicTacToePosition(/* position */) {
-  throw new Error('Not implemented');
+function evaluateTicTacToePosition(position) {
+  if (position[0][0] === position[0][1]
+    && position[0][1] === position[0][2]
+    && position[0][0] !== undefined) {
+    return position[0][0];
+  }
+  if (position[1][0] === position[1][1]
+    && position[1][1] === position[1][2]
+    && position[1][0] !== undefined) {
+    return position[1][0];
+  }
+  if (position[2][0] === position[2][1]
+    && position[2][1] === position[2][2]
+    && position[2][0] !== undefined) {
+    return position[2][0];
+  }
+  if (position[0][0] === position[1][0]
+    && position[1][0] === position[2][0]
+    && position[0][0] !== undefined) {
+    return position[0][0];
+  }
+  if (position[0][1] === position[1][1]
+    && position[1][1] === position[2][1]
+    && position[0][1] !== undefined) {
+    return position[0][1];
+  }
+  if (position[0][2] === position[1][2]
+    && position[1][2] === position[2][2]
+    && position[0][2] !== undefined) {
+    return position[0][2];
+  }
+  if (position[0][0] === position[1][1]
+    && position[1][1] === position[2][2]
+    && position[0][0] !== undefined) {
+    return position[0][0];
+  }
+  if (position[0][2] === position[1][1]
+    && position[1][1] === position[2][0]
+    && position[0][2] !== undefined) {
+    return position[0][2];
+  }
+  return undefined;
 }
 
 
